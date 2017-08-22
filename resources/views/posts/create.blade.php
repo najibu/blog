@@ -17,7 +17,13 @@
             <textarea class="form-control" id="body" cols="30" rows="10" name="body"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Publish</button>
-</form>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Publish</button>
+        </div>
+
+        @include ('layout.errors')
+    </form>
+
+
 </div>
 @endsection
