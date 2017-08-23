@@ -17,13 +17,7 @@ class PostsController extends Controller
                        ->filter(request(['month', 'year']))
                        ->get();
 
-        $archives = Post::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
-                          ->groupBy('year', 'month')
-                          ->orderByRaw('min(created_at) desc')
-                          ->get()
-                          ->toArray();
-
-        return view('posts.index', compact('posts', 'archives'));
+        return view('posts.index', compact('posts'));
     }
 
     public function show(Post $post)
@@ -39,8 +33,7 @@ class PostsController extends Controller
     public function store()
     {
         // Create a new post using the request data
-
-        // // save it to the database
+        // save it to the database
 
         $this->validate(request(), [
             'title' => 'required',
