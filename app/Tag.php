@@ -12,4 +12,9 @@ class Tag extends Model
         // Any tag may be applied to many posts
         return $this->belongsToMany(Post::class);
     }
+
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 }
